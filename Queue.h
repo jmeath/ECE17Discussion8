@@ -70,19 +70,16 @@ void Queue<T>::enqueue(T num){
 template <class T>
 void Queue<T>::dequeue(T &num){
 
-    Node* temp = front;
+    Node* temp = nullptr;
 
     if(isEmpty()){
         cout << "Queue is empty" << endl;
     } else {
+
         num = front -> element;
-        front = front -> next;
-
-        if (front == nullptr) {
-            back = nullptr;
-        }
-
-        delete temp;
+        temp = front -> next;
+        delete front;
+        front = temp;
         numNodes--;
 
 
